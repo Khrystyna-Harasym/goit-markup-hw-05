@@ -270,6 +270,7 @@ ol {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
+  letter-spacing: 0.06em;
   color: var(--main-text-color-theme-dark);
   background: var(--accent-color);
 
@@ -284,6 +285,7 @@ ol {
   transition: background-color var(--transition-dur-and-func),
     box-shadov var(--transition-dur-and-func);
 }
+
 .modal-open-btn:hover,
 .modal-open-btn:focus {
   background: #188ce8;
@@ -645,7 +647,12 @@ ol {
   height: 100%;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity 1000ms ease;
+  opacity: 1;
+  transition: opacity 1000ms ease, visibility 1000ms ease ;
+}
+.backdrop.is-hidden .modal{
+  transform: translate(-50%, -50%) scale(0.5);
+
 }
 .backdrop.is-hidden{
   visibility: hidden;
@@ -657,10 +664,12 @@ ol {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   width: 528px;
   height: 581px;
   background-color: #ffffff;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 1500ms ease;
 }
 .modal-close-btn{
   position: absolute;
